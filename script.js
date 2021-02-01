@@ -1,218 +1,106 @@
-$(document).ready(function () {
+const question = document.getElementById("question");
+const choices = Array.from(document.getElementsByClassName("choice-text"));
+const progressText = document.getElementById("progressText");
+const scoreText = document.getElementById("score");
+const progressBarFull = document.getElementById("progressBarFull");
 
+let currentQuestion = {};
+let acceptingAnswers = false;
+let score = 0;
+let questionCounter = 0;
+let availableQuesions = [];
 
-  localStorage.getItem("fetchName");
-  if (localStorage.getItem("fetchName") === "true") {
-    var generateQn = Math.floor((Math.random() * 2) + 1);
-    var triviaNumber = Math.floor((Math.random() * 2) + 1);
-    if (generateQn == "1" && triviaNumber == "1") {
-      fetchNameN()
-    }
-    if (generateQn == "1" && triviaNumber == "2") {
-      fetchNameS()
-    }
-    if (generateQn == "2" && triviaNumber == "1") {
-      fetchShinyN()
-    }
-    if (generateQn == "2" && triviaNumber == "2") {
-      fetchShinyS()
-    }
-
-    localStorage.removeItem("fetchName");
+let questions = [
+  {
+    question: "Inside which HTML element do we put the JavaScript??",
+    choice1: "<script>",
+    choice2: "<javascript>",
+    choice3: "<js>",
+    choice4: "<scripting>",
+    answer: 1
+  },
+  {
+    question:
+      "What is the correct syntax for referring to an external script called 'xxx.js'?",
+    choice1: "<script href='xxx.js'>",
+    choice2: "<script name='xxx.js'>",
+    choice3: "<script src='xxx.js'>",
+    choice4: "<script file='xxx.js'>",
+    answer: 3
+  },
+  {
+    question: " How do you write 'Hello World' in an alert box?",
+    choice1: "msgBox('Hello World');",
+    choice2: "alertBox('Hello World');",
+    choice3: "msg('Hello World');",
+    choice4: "alert('Hello World');",
+    answer: 4
   }
+];
 
+//CONSTANTS
+const CORRECT_BONUS = 10;
+const MAX_QUESTIONS = 3;
 
+startGame = () => {
+  questionCounter = 0;
+  score = 0;
+  availableQuesions = [...questions];
+  getNewQuestion();
+};
 
-  function fetchNameN() {
-
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
-
-    fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
-      .then(response => {
-        if (!response.ok) {
-          throw Error("ERROR");
-        }
-        console.log(response.json)
-        return response.json();
-      })
-      .then(data => {
-        console.log(data)
-        const html = [data]
-          .map(pokemon => {
-            return `
-            <div class="pokemon">
+getNewQuestion = () => {
+  if (availableQuesions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+    localStorage.setItem("mostRecentScore", score)
     
-            <img style ='image-rendering: pixelated;' src="pokemon/${pokemon.id}.png" class="card-img" alt="...">
-            <h1> Which Pokemon is This? </h1>
-            <form>
-            <div class="submitAnswer">
-              <div class="answerBar">
-               <input type="search" class="answer" id="answerBox" placeholder="Enter Answer">
-              </div>
-              <div class="answerBtn">
-                <button type="button" class="btn" id="answerButton"
-                onclick="script(getElementById('answerBox').value)">Enter</button>
-              </div>
-            </div>
+    //go to the end page
+    return window.location.assign("triviaend.html");
+  }
+  questionCounter++;
+  progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
+  //Update the progress bar
+  progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
-          </div>
+  const questionIndex = Math.floor(Math.random() * availableQuesions.length);
+  currentQuestion = availableQuesions[questionIndex];
+  question.innerText = currentQuestion.question;
 
-          `;
-          })
-          .join("");
-        console.log(html)
-        document.querySelector("#app").insertAdjacentHTML("beforebegin", html);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  };
+  choices.forEach(choice => {
+    const number = choice.dataset["number"];
+    choice.innerText = currentQuestion["choice" + number];
+  });
 
-  function fetchNameS() {
+  availableQuesions.splice(questionIndex, 1);
+  acceptingAnswers = true;
+};
 
-    var pokemonNumber = Math.floor((Math.random() * 893) + 1);
+choices.forEach(choice => {
+  choice.addEventListener("click", e => {
+    if (!acceptingAnswers) return;
 
-    fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
-      .then(response => {
-        if (!response.ok) {
-          throw Error("ERROR");
-        }
-        console.log(response.json)
-        return response.json();
-      })
-      .then(data => {
-        console.log(data)
-        const html = [data]
-          .map(pokemon => {
-            return `
-              <div class="pokemon">
-    
-                <img style ='image-rendering: pixelated;' src="pokemon/shiny/${pokemon.id}.png" class="card-img" alt="...">
-                <h1> Which Pokemon is This? </h1>
-                <form>
-                <div class="submitAnswer">
-                  <div class="answerBar">
-                   <input type="search" class="answer" id="answerBox" placeholder="Enter Answer">
-                  </div>
-                  <div class="answerBtn">
-                    <button type="button" class="btn" id="answerButton"
-                    onclick="script(getElementById('answerBox').value)">Enter</button>
-                  </div>
-                </div>
-    
-              </div>
-    
-              `;
-          })
-          .join("");
-        console.log(html)
-        document.querySelector("#app").insertAdjacentHTML("beforebegin", html);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  };
+    acceptingAnswers = false;
+    const selectedChoice = e.target;
+    const selectedAnswer = selectedChoice.dataset["number"];
 
+    const classToApply =
+      selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
-  function fetchShinyN() {
+    if (classToApply === "correct") {
+      incrementScore(CORRECT_BONUS);
+    }
 
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
+    selectedChoice.parentElement.classList.add(classToApply);
 
-    fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
-      .then(response => {
-        if (!response.ok) {
-          throw Error("ERROR");
-        }
-        console.log(response.json)
-        return response.json();
-      })
-      .then(data => {
-        console.log(data)
-        const html = [data]
-          .map(pokemon => {
-            return `
-            <div class="pokemon">
-    
-            <img style ='image-rendering: pixelated;' src="pokemon/${pokemon.id}.png" class="card-img" alt="...">
-            <h1> Is This Pokemon Shiny? </h1>
-            <form>
-            <div class="submitAnswer">
-              <div class="answerBar">
-               <input type="search" class="answer" id="answerBox" placeholder="Enter Answer">
-              </div>
-              <div class="answerBtn">
-                <button type="button" class="btn" id="answerButton"
-                onclick="script(getElementById('answerBox').value)">Enter</button>
-              </div>
-            </div>
+    setTimeout(() => {
+      selectedChoice.parentElement.classList.remove(classToApply);
+      getNewQuestion();
+    }, 1000);
+  });
+});
 
-          </div>
+incrementScore = num => {
+  score += num;
+  scoreText.innerText = score;
+};
 
-          `;
-          })
-          .join("");
-        console.log(html)
-        document.querySelector("#app").insertAdjacentHTML("beforebegin", html);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  };
-
-
-
-  function fetchShinyS() {
-
-    var pokemonNumber = Math.floor((Math.random() * 893) + 1);
-
-    fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
-      .then(response => {
-        if (!response.ok) {
-          throw Error("ERROR");
-        }
-        console.log(response.json)
-        return response.json();
-      })
-      .then(data => {
-        console.log(data)
-        const html = [data]
-          .map(pokemon => {
-            return `
-              <div class="pokemon">
-    
-                <img style ='image-rendering: pixelated;' src="pokemon/shiny/${pokemon.id}.png" class="card-img" alt="...">
-                <h1> Is This Pokemon Shiny? </h1>
-                <form>
-                <div class="submitAnswer">
-                  <div class="answerBar">
-                   <input type="search" class="answer" id="answerBox" placeholder="Enter Answer">
-                  </div>
-                  <div class="answerBtn">
-                    <button type="button" class="btn" id="answerButton"
-                    onclick="script(getElementById('answerBox').value)">Enter</button>
-                  </div>
-                </div>
-    
-              </div>
-    
-              `;
-          })
-          .join("");
-        console.log(html)
-        document.querySelector("#app").insertAdjacentHTML("beforebegin", html);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  };
-
-  $("#fetchName").on("click", function (e) {
-    e.preventDefault();
-    console.log('name clicked');
-    localStorage.setItem("fetchName", "true")
-    window.location.href = "trivia.html"
-
-  })
-
-
-})
+startGame();
