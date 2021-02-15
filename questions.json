@@ -16,11 +16,20 @@
       "answer": 3
     },
     {
-      "question": " How do you write 'Hello World' in an alert box?",
-      "choice1": "msgBox('Hello World');",
-      "choice2": "alertBox('Hello World');",
-      "choice3": "msg('Hello World');",
-      "choice4": "alert('Hello World');",
-      "answer": 4
+      "question": " Is This Pokemon Shiny?",
+      "choice1": "Yes",
+      "choice2": "No",
+      "choice3": "/",
+      "choice4": "/",
+      "answer": 1
+    },
+
+    {
+      "question": " Is This Pokemon Shiny?",
+      "choice1": "Yes",
+      "choice2": "No",
+      "choice3": "/",
+      "choice4": "/",
+      "answer": 2
     }
   ]
