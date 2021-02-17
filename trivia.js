@@ -11,7 +11,7 @@ let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 
-let questions = [];
+let questions = [{},{},{},{}];//declare proper object inside first
 
 fetchQ1C1()
 fetchQ1C2()
@@ -22,46 +22,51 @@ fetchQ2C2()
 fetchQ2C3()
 fetchQ2C4()
 
+var pokemonNumber = Math.floor((Math.random() * 499) + 1);
+var pokemonNumberTwo = Math.floor((Math.random() * 499) + 1);
+var pokemonNumberThree = Math.floor((Math.random() * 499) + 1);
+var pokemonNumberFour = Math.floor((Math.random() * 499) + 1);
+localStorage.setItem("pokemonNumber", pokemonNumber)
+localStorage.setItem("pokemonNumberTwo", pokemonNumberTwo)
+localStorage.setItem("pokemonNumberThree", pokemonNumberThree)
+localStorage.setItem("pokemonNumberFour", pokemonNumberFour)
+
+
+
 function fetchQ1C1() {
-
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
-
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
-      .then(response => {
-        if (!response.ok) {
-          throw Error("ERROR");
-        }
-        console.log(response.json)
-        return response.json();
-      })
+    pokeNum = Number(localStorage.getItem("pokemonNumber"))
+    fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNum + "/")
+    .then(response => {
+      if (!response.ok) {
+        throw Error("ERROR");
+      }
+      return response.json();
+    })
+        
       .then(data => {
 
-        const html = [data]
-        .map(pokemon => {
-        
-        console.log(data)
-        questions[0].choice1 = `${pokemon.name}`
-
-        /*return `
-        <div class="pokemon-sprite">
-          <img style ='image-rendering: pixelated;' src="Images/Pokemon/${pokemon.id}.png" class="card-img" alt="..."></img>
-        </div>`*/
-
+        const html = [data].map(pokemon => {
+          questions[0].choice1 = `${pokemon.name}`;
         })
-        .join("")
-        document.getElementById("container").innerHTML = html;
-      })
+        .join("");
+        return `
+          <div class="pokemon-sprite">
+          <img style="image-rendering: pixelated;" src="Images/Pokemon/${pokemonNumber}.png" class="card-img" alt="..."></img>
+          </div>`;
+  })
+    .then((data) => {
 
-  };
+      console.log(data);
+      $("#test").html(data);
+    })
+
+};
 
 
   function fetchQ1C2() {
+    pokeNumTwo = Number(localStorage.getItem("pokemonNumberTwo"))
 
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
-
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
+      fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumTwo + "/")
 
       .then(response => {
         if (!response.ok) {
@@ -72,13 +77,12 @@ function fetchQ1C1() {
       })
       .then(data => {
 
-        const html = [data]
-        .map(pokemon => {
-        
-        console.log(data)
-        questions[0].choice2 = `${pokemon.name}`
+        const html = [data].map(pokemon => {
+          questions[0].choice2 = `${pokemon.name}`;
         })
-          })
+        .join("");
+      })
+          
 
       .catch(error => {
         console.log(error);
@@ -86,11 +90,10 @@ function fetchQ1C1() {
   };
 
   function fetchQ1C3() {
+      
+    pokeNumThree = Number(localStorage.getItem("pokemonNumberThree"))
 
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
-
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
+      fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumThree + "/")
 
       .then(response => {
         if (!response.ok) {
@@ -107,6 +110,7 @@ function fetchQ1C1() {
         console.log(data)
         questions[0].choice3 = `${pokemon.name}`
         })
+        .join("");
           })
 
       .catch(error => {
@@ -116,10 +120,9 @@ function fetchQ1C1() {
 
   function fetchQ1C4() {
 
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
+    pokeNumFour = Number(localStorage.getItem("pokemonNumberFour"))
 
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
+      fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumFour + "/")
 
       .then(response => {
         if (!response.ok) {
@@ -136,6 +139,7 @@ function fetchQ1C1() {
         console.log(data)
         questions[0].choice4 = `${pokemon.name}`
         })
+        .join("");
           })
 
       .catch(error => {
@@ -145,10 +149,9 @@ function fetchQ1C1() {
 
   function fetchQ2C1() {
 
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
+    pokeNumThree = Number(localStorage.getItem("pokemonNumberThree"))
 
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
+      fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumThree + "/")
 
       .then(response => {
         if (!response.ok) {
@@ -173,6 +176,7 @@ function fetchQ1C1() {
         console.log(data)
         questions[1].choice1 = `${pokemonTypes}`
         })
+        .join("");
           })
 
       .catch(error => {
@@ -182,10 +186,9 @@ function fetchQ1C1() {
 
   function fetchQ2C2() {
 
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
+    pokeNumTwo = Number(localStorage.getItem("pokemonNumberTwo"))
 
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
+      fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumTwo + "/")
 
       .then(response => {
         if (!response.ok) {
@@ -210,6 +213,7 @@ function fetchQ1C1() {
         console.log(data)
         questions[1].choice2 = `${pokemonTypes}`
         })
+        .join("");
           })
 
       .catch(error => {
@@ -219,10 +223,9 @@ function fetchQ1C1() {
 
   function fetchQ2C3() {
 
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
+    pokeNum = Number(localStorage.getItem("pokemonNumber"))
 
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
+      fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNum + "/")
 
       .then(response => {
         if (!response.ok) {
@@ -247,6 +250,7 @@ function fetchQ1C1() {
         console.log(data)
         questions[1].choice3 = `${pokemonTypes}`
         })
+        .join("");
           })
 
       .catch(error => {
@@ -256,11 +260,10 @@ function fetchQ1C1() {
 
   function fetchQ2C4() {
 
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
+    pokeNumFour = Number(localStorage.getItem("pokemonNumberFour"))
 
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
-
+      fetch("https://pokeapi.co/api/v2/pokemon/" + pokeNumFour + "/")
+    
       .then(response => {
         if (!response.ok) {
           throw Error("ERROR");
@@ -284,78 +287,13 @@ function fetchQ1C1() {
         console.log(data)
         questions[1].choice4 = `${pokemonTypes}`
         })
+        .join("");
           })
 
       .catch(error => {
         console.log(error);
       })
   };
-
-  /*function fetchQ3C1() {
-
-    var pokemonNumber = Math.floor((Math.random() * 898) + 1);
-    var shinyNo = Math.floor((Math.random() * 2) + 1);
-
-    if (shinyNo == 1) {
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
-
-      .then(response => {
-        if (!response.ok) {
-          throw Error("ERROR");
-        }
-        console.log(response.json)
-        return response.json();
-      })
-      .then(data => {
-
-        const html = [data]
-        .map(data => {
-        
-        console.log(data)
-        questions[2].choice1 = `Yes`
-        questions[2].choice2 = `No`
-        })
-          })
-
-          return `
-          <div class="pokemon-sprite">
-            <img style ='image-rendering: pixelated;' src="Images/Pokemon/Shiny/${pokemon.id}.png" class="card-img" alt="..."></img>
-          </div>`
-
-      .catch(error => {
-        console.log(error);
-      })
-    } else {
-
-      fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonNumber + "/")
-
-      .then(response => {
-        if (!response.ok) {
-          throw Error("ERROR");
-        }
-        console.log(response.json)
-        return response.json();
-      })
-      .then(data => {
-
-        const html = [data]
-        .map(data => {
-        
-        console.log(data)
-        questions[2].choice1 = `No`
-        questions[2].choice2 = `Yes`
-        })
-          })
-
-          return `
-          <div class="pokemon-sprite">
-            <img style ='image-rendering: pixelated;' src="Images/Pokemon/${pokemon.id}.png" class="card-img" alt="..."></img>
-          </div>`
-    }
-  } */
-
-  
-
 
     fetch("questions.json")
 
@@ -436,3 +374,4 @@ incrementScore = (num) => {
     score += num;
     scoreText.innerText = score;
 };
+

@@ -74,3 +74,9 @@ function redirectMain() {
 const pokedollars = localStorage.getItem("Pokedollars")
 
 
+/* Profile picture changer */
+
+function changeImage(imgName) {
+  image = document.getElementById('imgDisp');
+  image.src = imgName;
+}

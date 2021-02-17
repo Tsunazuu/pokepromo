@@ -69,6 +69,19 @@
     animation: spin 1s linear infinite;
   }
 
+  .pokemon-sprite {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+  }
+
+  .card-img {
+    position: absolute;
+    top: 35%;
+    left: 35%;
+  }
+
   @keyframes spin {
     0% {
       transform: rotate(0deg);

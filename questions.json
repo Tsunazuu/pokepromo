@@ -1,7 +1,7 @@
 [
     {
       "question": "What Pokemon is This?",
-      "choice1": "Charizard",
+      "choice1": "Gumshoos",
       "choice2": "Tapu Koko",
       "choice3": "Mankey",
       "choice4": "Yvetal",
@@ -9,19 +9,11 @@
     },
     {
       "question": "What Type is This Pokemon?",
-      "choice1": "",
-      "choice2": "",
-      "choice3": "",
-      "choice4": "",
+      "choice1": "Water",
+      "choice2": "Grass",
+      "choice3": "Normal",
+      "choice4": "Steel, Flying",
       "answer": 3
-    },
-    {
-      "question": " Is This Pokemon Shiny?",
-      "choice1": "Yes",
-      "choice2": "No",
-      "choice3": "/",
-      "choice4": "/",
-      "answer": 1
     },
 
     {
@@ -31,5 +23,14 @@
       "choice3": "/",
       "choice4": "/",
       "answer": 2
+    },
+
+    {
+      "question": " Which Generation is this Pokemon From?",
+      "choice1": "Gen 8",
+      "choice2": "Gen 3",
+      "choice3": "Gen 7",
+      "choice4": "Gen 1",
+      "answer": 3
     }
   ]

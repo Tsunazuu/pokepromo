@@ -22,14 +22,24 @@
         </div>
 
         <h6 class="shop-text"> Shop </h6>
-
+        <img class="rates-btn" src="Images/rates.png" onclick="location.href = 'droprates.html';"></img>
         <div class="shop-container">
-            <div class="s-flexbox shop-flexbox-1"></div>
-            <div class="s-flexbox shop-flexbox-2"></div>
-            <div class="s-flexbox shop-flexbox-3"></div>
+            <div class="flexbox s-flexbox">
+                <input type="image" src="Images/pokeballIcon.png" class="shop-pokeball" onclick="buyPokeball()">
+            </div>
+            <h9 class="pokeball-shop-text"> Pokéball 1000P </h9>
+            <div class="flexbox s-flexbox">
+                <input type="image" src="Images/greatball_icon.png" class="shop-greatball" onclick="buyGreatball()">
+            </div>
+            <h9 class="greatball-shop-text"> Great ball 2000P </h9>
+            <div class="flexbox s-flexbox">
+                <input type="image" src="Images/ultraball_icon.png" class="shop-ultraball" onclick="buyUltraball()">
+            </div>
         </div>
+        <h9 class="ultraball-shop-text"> Ultra ball 3000P </h9>
 
         <div class="container-home-forums">
+            <h9 class="home-shop-text"> Gacha </h9>
             <input type="image" src="Images/home _icon.png" class="home-flexbox flexbox-1" onclick="location.href = 'main.html';">
             <input type="image" src="Images/forums_icon.png" class="forums-flexbox flexbox-2" onclick="location.href = 'forums.html';">
             <input type="image" src="Images/project_logo.png" class="trivia-flexbox flexbox-3" onclick="location.href = 'triviahome.html';">
@@ -39,4 +49,5 @@
     </div>
 
 </body>
+<script src="shop.js"></script>
 </html>

@@ -20,19 +20,32 @@
         <div id="middle-square" class="flex-center flex-column"></div>
     </div>
 
-    <div class="pfp-circle" onclick="location.href = 'pfp.html';"></div>
-
     <div class="flex-column flex-center name-display">
             <h3> Username </h3>
     </div>
     
-    <div class="pfp-flexbox">
-        <div class="flexbox pfp-flexbox-1" onclick="location.href = 'inventory.html';"></div>
-        <div class="flexbox pfp-flexbox-2" onclick="location.href = 'inventory.html';"></div>
-        <div class="flexbox pfp-flexbox-3" onclick="location.href = 'inventory.html';"></div>
-    </div>
+    <img id="imgDisp" class="pfp-circle" src="Images/Pokemon/1.png"/>
+        <div class="pfp-change-flexbox">
+            <div class="flexbox pfp-flexbox-i1">
+                <img class="i1-img" src="Images/Pokemon/282.png">
+                <span class="span-text" onclick="changeImage('Images/Pokemon/282.png')"> lll </span>
+            </div>
+            <div class="flexbox pfp-flexbox-i2">
+                <img class="i2-img" src="Images/Pokemon/304.png">
+                <span class="span-text" onclick="changeImage('Images/Pokemon/304.png')"> lll </span>
+            </div>
+            <div class="flexbox pfp-flexbox-i3">
+                <img class="i3-img" src="Images/Pokemon/346.png">
+                <span class="span-text" onclick="changeImage('Images/Pokemon/346.png')"> lll </span>
+            </div>
+            <div class="flexbox pfp-flexbox-i4">
+                <img class="i4-img" src="Images/Pokemon/352.png">
+                <span class="span-text" onclick="changeImage('Images/Pokemon/352.png')"> lll </span>
+            </div>
+        </div>
 
     <div class="container-home">
+        <h9 class="home-home-text"> Home </h9>
         <input type="image" src="Images/home _icon.png" class="home-flexbox flexbox-1-g" onclick="location.href = 'main.html';">
         <input type="image" src="Images/forums_icon.png" class="forums-flexbox flexbox-2" onclick="location.href = 'forums.html';">
         <input type="image" src="Images/project_logo.png" class="trivia-flexbox flexbox-3" onclick="location.href = 'triviahome.html';">
@@ -42,4 +55,6 @@
  
 
 </body>
+
+<script src="script.js"></script>
 </html>
