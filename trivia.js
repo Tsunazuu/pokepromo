@@ -51,7 +51,7 @@ function fetchQ1C1() {
         .join("");
         return `
           <div class="pokemon-sprite">
-          <img style="image-rendering: pixelated;" src="Images/Pokemon/${pokemonNumber}.png" class="card-img" alt="..."></img>
+          <img style="image-rendering: pixelated;" src="Pokemon/${pokemonNumber}.png" class="card-img" alt="..."></img>
           </div>`;
   })
     .then((data) => {
