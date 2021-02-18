@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="showInventoryStats()">
         <h2 class="gacha-text"> Gacha </h2>
 
         <div class="ball-container">
@@ -47,6 +47,18 @@
             <input type="image" src="Images/leaderboard_icon.png" class="leaderboard-flexbox flexbox-5" onclick="location.href = 'leaderboard.html';">
         </div>
     </div>
+
+    <h10 id="pokeballs-container"></h10>
+    <h10 id="greatballs-container"></h10>
+    <h10 id="ultraballs-container"></h10>
+    <h10 id="beastballs-container"></h10>
+    <h10 id="masterballs-container"></h10>
+
+    <h9 class="user-pokedollars-text"> Your Pokedollars: </h9>
+    <div class="money-container"></div>
+    <h10 id="pokedollars-container"></h10>
+
+    <a class="inventory-btn" href="inventory.html"> Inventory </a>
 
 </body>
 <script src="shop.js"></script>

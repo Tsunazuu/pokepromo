@@ -8,50 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="showVouchers()">
+    <h2 class="inventory-text flex-center"> Inventory </h2>
 
-    <div class="inventory-flexbox-1">
-        <div class="flexbox inv-flexbox-i1" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i2" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i3" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i4" onclick="location.href = 'main.html';"></div>
+    <div class="inventory-flexbox">
+        <img class="voucher-two" src="Images/voucher2.png">
+        <h10 class="voucher-two-text"> $2 Vouchers: </h10>
+        <h10 id="voucher-two-text-2"></h10>
+        <img class="voucher-five" src="Images/voucher5.jpg">
+        <h10 class="voucher-five-text"> $5 Vouchers: </h10>
+        <h10 id="voucher-five-text-2"></h10>
+        <img class="voucher-ten" src="Images/voucher10.png">
+        <h10 class="voucher-ten-text"> $10 Vouchers: </h10>
+        <h10 id="voucher-ten-text-2"></h10>
     </div>
-    <div class="inventory-flexbox-2">  
-        <div class="flexbox inv-flexbox-i5" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i6" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i7" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i8" onclick="location.href = 'main.html';"></div>
-    </div>
-    <div class="inventory-flexbox-3">
-        <div class="flexbox inv-flexbox-i9" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i10" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i11" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i12" onclick="location.href = 'main.html';"></div>
-    </div>
-    <div class="inventory-flexbox-4">
-        <div class="flexbox inv-flexbox-i13" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i14" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i15" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i16" onclick="location.href = 'main.html';"></div>
-    </div>
-    <div class="inventory-flexbox-5">
-        <div class="flexbox inv-flexbox-i17" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i18" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i19" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i20" onclick="location.href = 'main.html';"></div>
-    </div>
-    <div class="inventory-flexbox-6">
-        <div class="flexbox inv-flexbox-i21" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i22" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i23" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i24" onclick="location.href = 'main.html';"></div>
-    </div>
-    <div class="inventory-flexbox-7">
-        <div class="flexbox inv-flexbox-i25" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i26" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i27" onclick="location.href = 'main.html';"></div>
-        <div class="flexbox inv-flexbox-i28" onclick="location.href = 'main.html';"></div>
-    </div>
-    </div>
+
+    <a class="inventory-back-btn" href="gacha.html"> Back </a>
+
+
 </body>
+<script src="gacha.js"></script>
 </html>

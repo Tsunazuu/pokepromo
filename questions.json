@@ -20,8 +20,8 @@
       "question": " Is This Pokemon Shiny?",
       "choice1": "Yes",
       "choice2": "No",
-      "choice3": "/",
-      "choice4": "/",
+      "choice3": "None of the above",
+      "choice4": "All of the above",
       "answer": 2
     },
 

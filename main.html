@@ -8,9 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="displayUsername()">
 
     <div id="top-banner-banner" class="flex-center">
+        <a class="about-us-btn" href="aboutus.html"> About Us </a>
         <div id="top-banner" class="flex-center flex-column">
             <image src="Images/main_header.png" class="main-main-header">
         </div>    
@@ -21,10 +22,10 @@
     </div>
 
     <div class="flex-column flex-center name-display">
-            <h3> Username </h3>
+            <h3 id="username-display"></h3>
     </div>
     
-    <img id="imgDisp" class="pfp-circle" src="Images/Pokemon/1.png"/>
+    <img id="imgDisp" class="pfp-circle" src="Images/Pokemon/282.png"/>
         <div class="pfp-change-flexbox">
             <div class="flexbox pfp-flexbox-i1">
                 <img class="i1-img" src="Images/Pokemon/282.png">
@@ -53,8 +54,7 @@
         <input type="image" src="Images/leaderboard_icon.png" class="leaderboard-flexbox flexbox-5" onclick="location.href = 'leaderboard.html';">
     </div>
  
-
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="script.js"></script>
 </html>

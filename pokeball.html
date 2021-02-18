@@ -8,12 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="showPokeballs()">
         <h2 class="pokeball-text"> Pokeball </h2>
         <img src="Images/pokeballIcon.png" class="pokeball-open">
         <button class="open-btn" onclick="openPokeball()"> Open </button>
         <button class="back-btn" onclick="location.href = 'gacha.html';"> Back </button>
-    </div>
+
+
+    <h2 id="pokeballs-container-2"></h2>
 
 </body>
 <script src="gacha.js"></script>

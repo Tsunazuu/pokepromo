@@ -30,6 +30,41 @@ if (localStorage.getItem("voucher10" == null)) {
     localStorage.setItem("voucher10", "0")
 }
 
+function showPokeballs() {
+    var nowPokeballs = localStorage.getItem("Pokeball")
+    document.getElementById("pokeballs-container-2").innerHTML = nowPokeballs
+}
+
+function showGreatballs() {
+    var nowGreatballs = localStorage.getItem("Greatball")
+    document.getElementById("greatballs-container-2").innerHTML = nowGreatballs
+}
+
+function showUltraballs() {
+    var nowUltraballs = localStorage.getItem("Ultraball")
+    document.getElementById("ultraballs-container-2").innerHTML = nowUltraballs
+}
+
+function showBeastballs() {
+    var nowBeastballs = localStorage.getItem("Beastball")
+    document.getElementById("beastballs-container-2").innerHTML = nowBeastballs
+}
+
+function showMasterballs() {
+    var nowMasterballs = localStorage.getItem("Masterball")
+    document.getElementById("masterballs-container-2").innerHTML = nowMasterballs
+}
+
+function showVouchers() {
+    var nowVoucherTwo = localStorage.getItem("voucher2")
+    var nowVoucherFive = localStorage.getItem("voucher5")
+    var nowVoucherTen = localStorage.getItem("voucher10")
+    document.getElementById("voucher-two-text-2").innerHTML = nowVoucherTwo
+    document.getElementById("voucher-five-text-2").innerHTML = nowVoucherFive
+    document.getElementById("voucher-ten-text-2").innerHTML = nowVoucherTen
+
+}
+
 function randomNumber(min, max){
     const r = Math.random()*(max-min) + min
     return Math.floor(r)
@@ -56,7 +91,6 @@ function openGreatball() {
         newGreatball = currentGreatball - 1
         localStorage.setItem("Greatball", newGreatball)
         console.log(newGreatball)
-        greatballDrops()
     }
 }
 
@@ -65,11 +99,10 @@ function openUltraball() {
     if (currentUltraball <= "0") {
         alert("You do not have any Ultra balls!")
     } else {
-        //window.location.assign("openultraball.html")
+        window.location.assign("openultraball.html")
         newUltraball = currentUltraball - 1
         localStorage.setItem("Ultraball", newUltraball)
         console.log(newUltraball)
-        ultraballDrops()
     }
 }
 
@@ -82,7 +115,6 @@ function openMasterball() {
         newMasterball = currentMasterball - 1
         localStorage.setItem("Masterball", newMasterball)
         console.log(newMasterball)
-        masterballDrops()
     }
 }
 
@@ -95,120 +127,11 @@ function openBeastball() {
         newBeastball = currentBeastball - 1
         localStorage.setItem("Beastball", newBeastball)
         console.log(newBeastball)
-        beastballDrops()
     }
 }
 
-function pokeballDrops() {
-    var dropChance = randomNumber(1, 100)
-    if (dropChance <= 2) {
-        currentVoucher2 = Number(localStorage.getItem("voucher2"))
-        newVoucher2 = currentVoucher2 + 1
-        localStorage.setItem("voucher2", newVoucher2)
-        alert("You got 1 $2 voucher, congratulations!")
-        console.log(newVoucher2)
-    } else {
-        var pokedollarsBack = randomNumber(700, 1100)
-        alert("You got " + pokedollarsBack + "P, better luck next time!")
-        currentPokedollars = Number(localStorage.getItem("Pokedollars"))
-        newPokedollars = currentPokedollars + pokedollarsBack
-        localStorage.setItem("Pokedollars", newPokedollars)
-        console.log(pokedollarsBack)
-    }
-}
-
-function greatballDrops() {
-    var dropChance = randomNumber(1, 100)
-    if (dropChance <= 5) {
-        currentVoucher2 = Number(localStorage.getItem("voucher2"))
-        alert("You got 1 $2 voucher, congratulations!")
-        newVoucher2 = currentVoucher2 + 1
-        localStorage.setItem("voucher2", newVoucher2)
-        console.log(newVoucher2)
-    } else {
-        var pokedollarsBack = randomNumber(1500, 1900) 
-        alert("You got " + pokedollarsBack + "P, better luck next time!")
-        currentPokedollars = Number(localStorage.getItem("Pokedollars"))
-        newPokedollars = currentPokedollars + pokedollarsBack
-        localStorage.setItem("Pokedollars", newPokedollars)
-        console.log(pokedollarsBack)
-    }
-}
-
-function ultraballDrops() {
-    var dropChance = randomNumber(1, 100)
-    if (dropChance <= 5) {
-        currentVoucher2 = Number(localStorage.getItem("voucher2"))
-        newVoucher2 = currentVoucher2 + 1
-        localStorage.setItem("voucher2", newVoucher2)
-        alert("You got 1 $2 voucher, congratulations!")
-        console.log(newVoucher2)
-    }
-    if (dropChance > 5 && dropChance <= 7) {
-        currentVoucher5 = Number(localStorage.getItem("voucher5"))
-        newVoucher5 = currentVoucher5 + 1
-        localStorage.setItem("voucher5", newVoucher5)
-        alert("You got 1 $5 voucher, congratulations!")
-        console.log(newVoucher5)
-    }
-    if (dropChance > 7) {
-        var pokedollarsBack = randomNumber(2300, 2700) 
-        currentPokedollars = Number(localStorage.getItem("Pokedollars"))
-        newPokedollars = currentPokedollars + pokedollarsBack
-        localStorage.setItem("Pokedollars", newPokedollars)
-        alert("You got " + pokedollarsBack + "P, better luck next time!")
-        console.log(pokedollarsBack)
-    }
-}
-
-function masterballDrops() {
-    var dropChance = randomNumber(1, 100)
-    if (dropChance <= 7) {
-        currentVoucher5 = Number(localStorage.getItem("voucher5"))
-        newVoucher5 = currentVoucher5 + 1
-        localStorage.setItem("voucher5", newVoucher5)
-        alert("You got 1 $5 voucher, congratulations!")
-        console.log(newVoucher5)
-    }
-    if (dropChance > 7 && dropChance <= 9) {
-        currentVoucher10 = Number(localStorage.getItem("voucher10"))
-        newVoucher10 = currentVoucher10 + 1
-        localStorage.setItem("voucher10", newVoucher10)
-        alert("You got 1 $10 voucher, congratulations!")
-        console.log(newVoucher10)
-
-    } else {
-        var pokedollarsBack = randomNumber(3100, 3500) 
-        currentPokedollars = Number(localStorage.getItem("Pokedollars"))
-        newPokedollars = currentPokedollars + pokedollarsBack
-        localStorage.setItem("Pokedollars", newPokedollars)
-        alert("You got " + pokedollarsBack + "P, better luck next time!")
-        console.log(pokedollarsBack)
-    }
-}
-
-function beastballDrops() {
-    var dropChance = randomNumber(1, 100)
-    if (dropChance <= 10) {
-        currentVoucher5 = Number(localStorage.getItem("voucher2"))
-        newVoucher5 = currentVoucher5 + 1
-        localStorage.setItem("voucher5", newVoucher5)
-        alert("You got 1 $5 voucher, congratulations!")
-        console.log(newVoucher5)
-    }
-    if (dropChance > 10 && dropChance <= 15) {
-        currentVoucher10 = Number(localStorage.getItem("voucher10"))
-        newVoucher10 = currentVoucher10 + 1
-        localStorage.setItem("voucher10", newVoucher10)
-        alert("You got 1 $10 voucher, congratulations!")
-        console.log(newVoucher10)
-
-    } else {
-        var pokedollarsBack = randomNumber(3900, 4300) 
-        currentPokedollars = Number(localStorage.getItem("Pokedollars"))
-        newPokedollars = currentPokedollars + pokedollarsBack
-        localStorage.setItem("Pokedollars", newPokedollars)
-        alert("You got " + pokedollarsBack + "P, better luck next time!")
-        console.log(pokedollarsBack)
-    }
-}
+//localStorage.setItem("Beastball", 3)
+//localStorage.setItem("Pokeball", 21)
+//localStorage.setItem("Greatball", 10)
+//localStorage.setItem("Ultraball", 8)
+//localStorage.setItem("Masterball", 2)
