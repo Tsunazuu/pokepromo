@@ -16,15 +16,15 @@ if (localStorage.getItem("Ultraball" == null)) {
 
 function showInventoryStats() {
     if (localStorage.getItem("Pokeball" == null)) {
-        localStorage.setItem("Pokeball", "0")
+        localStorage.setItem("Pokeball", 0)
     }
     
     if (localStorage.getItem("Greatball" == null)) {
-        localStorage.setItem("Greatball", "0")
+        localStorage.setItem("Greatball", 0)
     }
     
     if (localStorage.getItem("Ultraball" == null)) {
-        localStorage.setItem("Ultraball", "0")
+        localStorage.setItem("Ultraball", 0)
     }
     
     var nowPokedollars = localStorage.getItem("Pokedollars")
