@@ -13,15 +13,6 @@ let availableQuesions = [];
 
 let questions = [{},{},{},{}];//declare proper object inside first
 
-fetchQ1C1()
-fetchQ1C2()
-fetchQ1C3()
-fetchQ1C4()
-fetchQ2C1()
-fetchQ2C2()
-fetchQ2C3()
-fetchQ2C4()
-
 var pokemonNumber = Math.floor((Math.random() * 499) + 1);
 var pokemonNumberTwo = Math.floor((Math.random() * 499) + 1);
 var pokemonNumberThree = Math.floor((Math.random() * 499) + 1);
@@ -31,6 +22,14 @@ localStorage.setItem("pokemonNumberTwo", pokemonNumberTwo)
 localStorage.setItem("pokemonNumberThree", pokemonNumberThree)
 localStorage.setItem("pokemonNumberFour", pokemonNumberFour)
 
+fetchQ1C1()
+fetchQ1C2()
+fetchQ1C3()
+fetchQ1C4()
+fetchQ2C1()
+fetchQ2C2()
+fetchQ2C3()
+fetchQ2C4()
 
 
 function fetchQ1C1() {
