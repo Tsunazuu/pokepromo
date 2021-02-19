@@ -50,7 +50,7 @@ function fetchQ1C1() {
         .join("");
         return `
           <div class="pokemon-sprite">
-          <img style="image-rendering: pixelated;" src="Images/Pokemon/${pokemonNumber}.png" class="card-img" alt="..."></img>
+          <img style="image-rendering: pixelated;" src="Pokemon/${pokemonNumber}.png" class="card-img" alt="..."></img>
           </div>`;
   })
     .then((data) => {
@@ -310,7 +310,7 @@ function fetchQ1C1() {
 
 //CONSTANTS
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 4;
+const MAX_QUESTIONS = 3;
 
 startGame = () => {
     questionCounter = 0;
