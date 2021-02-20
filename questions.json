@@ -23,14 +23,6 @@
       "choice3": "None of the above",
       "choice4": "All of the above",
       "answer": 2
-    },
-
-    {
-      "question": " Which Generation is this Pokemon From?",
-      "choice1": "Gen 8",
-      "choice2": "Gen 3",
-      "choice3": "Gen 7",
-      "choice4": "Gen 1",
-      "answer": 3
     }
+
   ]
