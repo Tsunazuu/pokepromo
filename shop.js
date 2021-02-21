@@ -96,8 +96,3 @@ function buyUltraball() {
     }
 }
 
-localStorage.setItem("Masterball", 3)
-localStorage.setItem("Beastball", 3)
-localStorage.setItem("Ultraball", 3)
-localStorage.setItem("Pokeball", 3)
-localStorage.setItem("Greatball", 3)
